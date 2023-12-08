@@ -30,7 +30,7 @@ def run_bot():
         'content': message.content,
         'timestamp': str(message.created_at),
         }
-        if message.channel.id == 887771482992824353:
+        if message.channel.id == "YOUR CHANNEL ID HERE":
             save_to_json(message_data)
         else:
             print("fat animal wrong channimal")
