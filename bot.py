@@ -1,6 +1,7 @@
 import discord
 from config import TOKEN
 import json
+from announce_list import channel_list
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -26,11 +27,12 @@ def run_bot():
             return
         
         message_data = {
-        'author': str(message.author),
-        'content': message.content,
-        'timestamp': str(message.created_at),
+            'guild_id':str(message.guild.id),
+            'author': str(message.author),
+            'content': message.content,
+            'timestamp': str(message.created_at),
         }
-        if message.channel.id == 887771482992824353:
+        if message.channel.id in channel_list:
             save_to_json(message_data)
         else:
             print("fat animal wrong channimal")
